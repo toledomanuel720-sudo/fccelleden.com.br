@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark scroll-smooth select-none">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fc.cell_1 | Loja de Telefone & Acessórios em Éden, São João de Meriti</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            400: '#38bdf8',
+                            500: '#0284c7',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            900: '#0c4a6e',
+                            950: '#030712'
+                        },
+                        cyber: {
+                            blue: '#00f0ff',
+                            purple: '#7000ff',
+                            gold: '#fbbf24',
+                            emerald: '#10b981'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #030712;
+            color: #f3f4f6;
+        }
+
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(3, 7, 18, 0.6);
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(56, 189, 248, 0.4);
+            border-radius: 99px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: rgba(56, 189, 248, 0.8);
+        }
+
+        .glow-effect {
+            box-shadow: 0 0 20px rgba(2, 132, 199, 0.35);
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col antialiased">
+
+    <!-- Announcement Bar -->
+    <div class="bg-gradient-to-r from-brand-900 via-cyan-900 to-brand-900 border-b border-cyan-500/30 text-white text-[11px] py-1.5 px-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center gap-2">
+            <div class="flex items-center gap-2 overflow-hidden whitespace-nowrap">
+                <span class="bg-cyan-500 text-slate-950 font-black px-2 py-0.5 rounded-full text-[9px] uppercase tracking-wider">ÉDEN - RJ</span>
+                <span class="font-medium text-slate-200 truncate">📍 Av. Dr. Délio Guaraná, 502 - Éden, São João de Meriti</span>
+            </div>
+            <div class="hidden md:flex items-center gap-4 text-slate-300 font-semibold">
+                <a href="https://wa.me/5521992801596" target="_blank" class="hover:text-emerald-400 transition flex items-center gap-1">
+                    <i class="fa-brands fa-whatsapp text-emerald-400"></i> (21) 99280-1596
+                </a>
+                <a href="https://www.instagram.com/fc.cell_1" target="_blank" class="hover:text-pink-400 transition flex items-center gap-1">
+                    <i class="fa-brands fa-instagram text-pink-400"></i> @fc.cell_1
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header Navigation -->
+    <header class="sticky top-0 z-40 bg-slate-950/90 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
+            
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <img src="Screenshot_20260909_221302_Instagram.jpg" onerror="this.onerror=null; this.src='https://placehold.co/100x100/0284c7/ffffff?text=FC';" alt="Logo FC CELL" class="w-12 h-12 rounded-full border-2 border-cyan-400 shadow-md group-hover:scale-105 transition object-cover">
+                <div>
+                    <h1 class="text-xl font-black tracking-tight text-white leading-none">
+                        fc.cell<span class="text-cyan-400">_1</span>
+                    </h1>
+                    <p class="text-[10px] text-cyan-300 font-bold uppercase tracking-wider mt-0.5">Telefones & Acessórios</p>
+                </div>
+            </a>
+
+            <!-- Search Bar (Desktop) -->
+            <div class="hidden md:flex flex-1 max-w-md relative">
+                <input type="text" id="searchInput" oninput="handleSearch(this.value)" placeholder="Buscar capas, fones, carregadores, películas..." class="w-full bg-slate-900 border border-slate-800 rounded-2xl pl-10 pr-4 py-2 text-xs text-white placeholder-slate-500 outline-none focus:border-cyan-400 transition">
+                <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-2.5 text-slate-500 text-xs"></i>
+            </div>
+
+            <!-- Action Controls -->
+            <div class="flex items-center gap-2">
+                <a href="https://www.instagram.com/fc.cell_1" target="_blank" class="p-2.5 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-xl text-xs hover:opacity-90 transition shadow-md" title="Perfil Instagram">
+                    <i class="fa-brands fa-instagram text-base"></i>
+                </a>
+
+                <!-- Wishlist Toggle -->
+                <button onclick="openWishlistModal()" class="relative p-2.5 bg-slate-900 border border-slate-800 text-slate-300 hover:text-rose-400 rounded-xl text-xs transition" title="Favoritos">
+                    <i class="fa-regular fa-heart text-base"></i>
+                    <span id="wishlistBadge" class="hidden absolute -top-1 -right-1 w-4 h-4 bg-rose-500 text-white text-[9px] font-bold rounded-full items-center justify-center">0</span>
+                </button>
+
+                <!-- Cart Button -->
+                <button onclick="toggleCartDrawer()" class="relative bg-gradient-to-r from-brand-600 to-cyan-600 hover:from-brand-500 hover:to-cyan-500 text-white px-3.5 py-2 rounded-xl font-bold text-xs shadow-lg shadow-cyan-500/20 flex items-center gap-2 transition active:scale-95">
+                    <i class="fa-solid fa-cart-shopping text-sm"></i>
+                    <span class="hidden sm:inline">Carrinho</span>
+                    <span id="cartBadge" class="bg-slate-950 text-cyan-400 text-xs font-black px-2 py-0.5 rounded-full">0</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Search Bar -->
+        <div class="px-4 pb-3 md:hidden">
+            <div class="relative w-full">
+                <input type="text" oninput="handleSearch(this.value)" placeholder="Buscar produtos..." class="w-full bg-slate-900 border border-slate-800 rounded-xl pl-9 pr-4 py-2 text-xs text-white placeholder-slate-500 outline-none focus:border-cyan-400">
+                <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-slate-500 text-xs"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="relative bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950 border-b border-slate-800/80 overflow-hidden py-8 md:py-12">
+        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 items-center gap-8">
+            
+            <div class="space-y-4 text-center md:text-left">
+                <div class="inline-flex items-center gap-2 bg-cyan-500/10 border border-cyan-500/30 px-3 py-1 rounded-full text-cyan-300 text-xs font-bold">
+                    <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                    Loja Física em Éden, São João de Meriti
+                </div>
+
+                <h2 class="text-3xl md:text-5xl font-black text-white leading-tight tracking-tight">
+                    Sua Loja de <span class="bg-gradient-to-r from-cyan-400 to-brand-500 bg-clip-text text-transparent">Telefones & Acessórios</span>
+                </h2>
+
+                <p class="text-slate-400 text-xs md:text-sm leading-relaxed max-w-lg">
+                    Encontre os melhores fones Bluetooth, carregadores super rápidos, capas, películas e serviços especializados de manutenção de celular.
+                </p>
+
+                <div class="flex flex-wrap items-center justify-center md:justify-start gap-3 pt-2">
+                    <a href="#catalogo" class="bg-gradient-to-r from-brand-600 to-cyan-600 hover:from-brand-500 hover:to-cyan-500 text-white font-bold px-6 py-3 rounded-2xl text-xs shadow-lg shadow-cyan-500/25 transition flex items-center gap-2">
+                        <i class="fa-solid fa-bag-shopping"></i> Ver Produtos
+                    </a>
+                    <a href="#assistencia" class="bg-slate-900 border border-slate-700 hover:border-amber-400 text-slate-200 font-bold px-5 py-3 rounded-2xl text-xs transition flex items-center gap-2">
+                        <i class="fa-solid fa-wrench text-amber-400"></i> Orçamento de Conserto
+                    </a>
+                </div>
+
+                <!-- Trust Badges -->
+                <div class="grid grid-cols-3 gap-2 pt-4 border-t border-slate-800/80 text-[11px] text-slate-400 font-medium">
+                    <div class="flex items-center gap-1.5 justify-center md:justify-start">
+                        <i class="fa-solid fa-shield-check text-cyan-400"></i> Produtos Testados
+                    </div>
+                    <div class="flex items-center gap-1.5 justify-center md:justify-start">
+                        <i class="fa-solid fa-bolt text-amber-400"></i> Entrega Rápida
+                    </div>
+                    <div class="flex items-center gap-1.5 justify-center md:justify-start">
+                        <i class="fa-solid fa-location-dot text-emerald-400"></i> Retirada em Éden
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Product Hero Card (Fone M10 TWS) -->
+            <div class="relative flex justify-center">
+                <div class="relative w-full max-w-sm glass-panel p-5 rounded-3xl border border-cyan-500/30 shadow-2xl space-y-4">
+                    <div class="absolute -top-3 -right-3 bg-cyan-500 text-slate-950 font-black text-[10px] uppercase px-3 py-1 rounded-full shadow-lg">
+                        Disponível ✔
+                    </div>
+
+                    <div class="relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-800 h-64 flex items-center justify-center">
+                        <img src="Screenshot_20260908_222911_Instagram.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/0284c7/ffffff?text=Fone+M10';" alt="Fone M10 TWS" class="w-full h-full object-cover">
+                    </div>
+
+                    <div>
+                        <span class="text-[10px] uppercase font-extrabold text-cyan-400 tracking-wider">Destaque da Loja</span>
+                        <h3 class="text-lg font-black text-white">Fone M10 TWS Bluetooth V5.1</h3>
+                        <p class="text-xs text-slate-400 mt-1 line-clamp-2">Display digital LED indicador de bateria, estojo recarregável e excelente qualidade sonora.</p>
+                    </div>
+
+                    <div class="flex items-baseline justify-between pt-1">
+                        <div>
+                            <span class="text-2xl font-black text-emerald-400">R$ 70,00</span>
+                            <span class="text-xs text-slate-500 line-through ml-2">R$ 90,00</span>
+                        </div>
+                        <button onclick="addToCart('prod-1')" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-4 py-2 rounded-xl text-xs transition flex items-center gap-1.5 shadow-lg shadow-emerald-600/20">
+                            <i class="fa-solid fa-cart-plus"></i> Comprar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Catalog Section -->
+    <section id="catalogo" class="max-w-7xl mx-auto px-4 py-12 flex-1 w-full">
+        
+        <!-- Section Header -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+            <div>
+                <h3 class="text-2xl font-black text-white tracking-tight">Catálogo de Produtos</h3>
+                <p class="text-xs text-slate-400 mt-1">Selecione uma categoria para ver as ofertas disponíveis em Éden</p>
+            </div>
+
+            <!-- Categories Tabs -->
+            <div class="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0 custom-scrollbar">
+                <button onclick="filterCategory('all')" id="cat-all" class="cat-btn active bg-brand-600 text-white px-4 py-2 rounded-xl text-xs font-bold transition whitespace-nowrap">
+                    Todos
+                </button>
+                <button onclick="filterCategory('fones')" id="cat-fones" class="cat-btn bg-slate-900 text-slate-300 hover:text-white px-4 py-2 rounded-xl text-xs font-bold transition whitespace-nowrap border border-slate-800">
+                    Fones & Áudio
+                </button>
+                <button onclick="filterCategory('capas')" id="cat-capas" class="cat-btn bg-slate-900 text-slate-300 hover:text-white px-4 py-2 rounded-xl text-xs font-bold transition whitespace-nowrap border border-slate-800">
+                    Capinhas & Películas
+                </button>
+                <button onclick="filterCategory('carregadores')" id="cat-carregadores" class="cat-btn bg-slate-900 text-slate-300 hover:text-white px-4 py-2 rounded-xl text-xs font-bold transition whitespace-nowrap border border-slate-800">
+                    Carregadores
+                </button>
+                <button onclick="filterCategory('smartwatches')" id="cat-smartwatches" class="cat-btn bg-slate-900 text-slate-300 hover:text-white px-4 py-2 rounded-xl text-xs font-bold transition whitespace-nowrap border border-slate-800">
+                    Smartwatches
+                </button>
+                <button onclick="filterCategory('celulares')" id="cat-celulares" class="cat-btn bg-slate-900 text-slate-300 hover:text-white px-4 py-2 rounded-xl text-xs font-bold transition whitespace-nowrap border border-slate-800">
+                    Smartphones
+                </button>
+            </div>
+        </div>
+
+        <!-- Products Grid -->
+        <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+            <!-- Populated via JS -->
+        </div>
+    </section>
+
+    <!-- Technical Service & Repair Section -->
+    <section id="assistencia" class="bg-slate-900/60 border-y border-slate-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
+            
+            <div class="space-y-4">
+                <div class="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/30 text-amber-400 px-3 py-1 rounded-full text-xs font-bold">
+                    <i class="fa-solid fa-wrench"></i> Assistência Técnica em Éden
+                </div>
+                <h3 class="text-2xl md:text-3xl font-black text-white">Conserto & Manutenção de Celular</h3>
+                <p class="text-slate-300 text-xs md:text-sm leading-relaxed">
+                    Seu celular quebrou a tela, parou de carregar ou a bateria viciou? Na <strong>fc.cell_1</strong> realizamos orçamento rápido sem compromisso.
+                </p>
+                
+                <ul class="space-y-2 text-xs text-slate-300 font-medium">
+                    <li class="flex items-center gap-2">
+                        <i class="fa-solid fa-circle-check text-emerald-400"></i> Troca de Tela e Display Touch
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fa-solid fa-circle-check text-emerald-400"></i> Troca de Bateria com alta durabilidade
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fa-solid fa-circle-check text-emerald-400"></i> Reparo de Conector de Carga e Alto-falante
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fa-solid fa-circle-check text-emerald-400"></i> Limpeza química e desoxidação
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Repair Quote Form -->
+            <div class="glass-panel p-6 rounded-3xl border border-slate-800 space-y-4 shadow-xl">
+                <h4 class="font-black text-lg text-white">Solicitar Orçamento Grátis</h4>
+                <p class="text-xs text-slate-400">Preencha o modelo do celular e o defeito para receber o valor pelo WhatsApp.</p>
+
+                <form onsubmit="sendRepairQuote(event)" class="space-y-3">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 mb-1">Modelo do Celular:</label>
+                        <input type="text" id="repairModel" required placeholder="Ex: Samsung A54, iPhone 11, Redmi Note 12..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white outline-none focus:border-amber-400">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 mb-1">Defeito Apresentado:</label>
+                        <select id="repairIssue" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white outline-none focus:border-amber-400">
+                            <option value="Tela Quebrada / Sem Imagem">Tela Quebrada / Sem Imagem</option>
+                            <option value="Bateria Viciada / Não Segura Carga">Bateria Viciada / Não Segura Carga</option>
+                            <option value="Não Carrega (Conector)">Não Carrega (Conector)</option>
+                            <option value="Molhou / Não Liga">Molhou / Não Liga</option>
+                            <option value="Outro Defeito">Outro Defeito</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 mb-1">Seu Nome:</label>
+                        <input type="text" id="repairName" required placeholder="Ex: Carlos Oliveira" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white outline-none focus:border-amber-400">
+                    </div>
+
+                    <button type="submit" class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-black py-3 rounded-xl transition shadow-lg shadow-amber-500/20 text-xs flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-base"></i> Pedir Orçamento no WhatsApp
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Physical Location Section -->
+    <section class="max-w-7xl mx-auto px-4 py-12">
+        <div class="glass-panel rounded-3xl p-6 md:p-8 border border-cyan-500/30 grid md:grid-cols-2 gap-8 items-center">
+            
+            <div class="space-y-4">
+                <span class="bg-cyan-500/20 text-cyan-300 px-3 py-1 rounded-full text-xs font-extrabold uppercase border border-cyan-500/30">Nossa Loja Física</span>
+                <h3 class="text-2xl font-black text-white">Venha nos fazer uma visita em Éden!</h3>
+                
+                <p class="text-xs md:text-sm text-slate-300 leading-relaxed">
+                    📍 <strong>Av. Dr. Délio Guaraná, 502</strong> - Éden, São João de Meriti - RJ, 25545-100
+                </p>
+
+                <div class="space-y-2 text-xs text-slate-400">
+                    <p><i class="fa-regular fa-clock text-cyan-400"></i> Seg a Sáb: 08:30 às 19:00</p>
+                    <p><i class="fa-brands fa-whatsapp text-emerald-400"></i> WhatsApp: (21) 99280-1596</p>
+                    <p><i class="fa-brands fa-instagram text-pink-400"></i> Instagram: @fc.cell_1</p>
+                </div>
+
+                <div class="flex flex-wrap gap-3 pt-2">
+                    <a href="https://maps.google.com/?q=Av.+Dr.+D%C3%A9lio+Guaran%C3%A1,+502+-+%C3%89den,+S%C3%A3o+Jo%C3%A3o+de+Meriti+-+RJ" target="_blank" class="bg-brand-600 hover:bg-brand-500 text-white font-bold px-4 py-2.5 rounded-xl text-xs transition flex items-center gap-2">
+                        <i class="fa-solid fa-location-arrow"></i> Como Chegar (Google Maps)
+                    </a>
+                    <button onclick="copyAddress()" class="bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold px-4 py-2.5 rounded-xl text-xs transition flex items-center gap-2">
+                        <i class="fa-regular fa-copy"></i> Copiar Endereço
+                    </button>
+                </div>
+            </div>
+
+            <!-- Interactive Map Graphic Placeholder -->
+            <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900 h-64 relative flex items-center justify-center p-6 text-center">
+                <div class="space-y-3">
+                    <img src="Screenshot_20260909_221302_Instagram.jpg" onerror="this.onerror=null; this.src='https://placehold.co/100x100/0284c7/ffffff?text=FC';" alt="Logo FC CELL" class="w-16 h-16 rounded-full border-2 border-cyan-400 mx-auto shadow-lg">
+                    <h4 class="font-black text-white text-base">fc.cell_1 • Éden</h4>
+                    <p class="text-xs text-slate-400">Av. Dr. Délio Guaraná, 502 - São João de Meriti</p>
+                    <a href="https://wa.me/5521992801596" target="_blank" class="inline-flex bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-4 py-2 rounded-xl text-xs transition items-center gap-1.5">
+                        <i class="fa-brands fa-whatsapp"></i> Falar com Atendente
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-800 py-8 text-xs text-slate-400 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+            
+            <div class="flex items-center gap-3">
+                <img src="Screenshot_20260909_221302_Instagram.jpg" onerror="this.onerror=null; this.src='https://placehold.co/100x100/0284c7/ffffff?text=FC';" alt="Logo FC CELL" class="w-10 h-10 rounded-full border border-cyan-400">
+                <div>
+                    <span class="font-black text-white text-sm">fc.cell<span class="text-cyan-400">_1</span></span>
+                    <p class="text-[10px] text-slate-500">Av. Dr. Délio Guaraná, 502 - Éden, São João de Meriti - RJ</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <a href="https://www.instagram.com/fc.cell_1" target="_blank" class="hover:text-pink-400 transition text-lg">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://wa.me/5521992801596" target="_blank" class="hover:text-emerald-400 transition text-lg">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+            </div>
+
+            <p class="text-[11px] text-slate-500">
+                &copy; 2026 fc.cell_1. Todos os direitos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Cart Drawer -->
+    <div id="cartDrawerOverlay" onclick="toggleCartDrawer()" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300"></div>
+    <div id="cartDrawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-slate-900 border-l border-slate-800 z-50 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col text-slate-100">
+        
+        <div class="p-4 border-b border-slate-800 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-cart-shopping text-cyan-400"></i>
+                <h3 class="font-black text-base">Seu Carrinho</h3>
+            </div>
+            <button onclick="toggleCartDrawer()" class="p-2 text-slate-400 hover:text-white transition">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+        </div>
+
+        <div id="cartItemsContainer" class="flex-1 overflow-y-auto p-4 space-y-3 custom-scrollbar">
+            <!-- Items rendered via JS -->
+        </div>
+
+        <div class="p-4 border-t border-slate-800 bg-slate-950 space-y-3">
+            
+            <div class="space-y-1">
+                <label class="text-xs font-bold text-slate-400">Bairro para Entrega / Retirada:</label>
+                <select id="deliveryOption" onchange="updateCartTotals()" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-xs font-semibold outline-none focus:border-cyan-400 text-white">
+                    <option value="0">Retirar na Loja (Av. Dr. Délio Guaraná, 502) - R$ 0,00</option>
+                    <option value="5">Entrega Éden - R$ 5,00</option>
+                    <option value="8">Entrega Centro de São João - R$ 8,00</option>
+                    <option value="10">Entrega Vilar dos Teles / Outros - R$ 10,00</option>
+                </select>
+            </div>
+
+            <div class="flex gap-2">
+                <input type="text" id="couponInput" placeholder="Cupom (ex: EDEN10)" class="flex-1 bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-xs uppercase outline-none focus:border-cyan-400 text-white">
+                <button onclick="applyCoupon()" class="bg-slate-700 hover:bg-slate-600 text-white font-bold px-3 py-2 rounded-xl text-xs transition">Aplicar</button>
+            </div>
+
+            <div class="space-y-1 text-xs pt-1 border-t border-slate-800">
+                <div class="flex justify-between text-slate-400">
+                    <span>Subtotal:</span>
+                    <span id="cartSubtotal">R$ 0,00</span>
+                </div>
+                <div class="flex justify-between text-slate-400">
+                    <span>Taxa de Entrega:</span>
+                    <span id="cartDelivery">R$ 0,00</span>
+                </div>
+                <div id="discountRow" class="hidden flex justify-between text-emerald-400 font-bold">
+                    <span>Desconto Cupom:</span>
+                    <span id="cartDiscount">-R$ 0,00</span>
+                </div>
+                <div class="flex justify-between text-base font-black text-white pt-2 border-t border-slate-800">
+                    <span>Total:</span>
+                    <span id="cartTotal" class="text-cyan-400">R$ 0,00</span>
+                </div>
+            </div>
+
+            <button onclick="openCheckoutModal()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl transition shadow-lg shadow-emerald-600/20 text-xs flex items-center justify-center gap-2">
+                <i class="fa-brands fa-whatsapp text-base"></i> Finalizar Pedido no WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkoutModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-slate-900 rounded-3xl max-w-md w-full p-6 relative border border-slate-800 shadow-2xl text-white">
+            <button onclick="closeCheckoutModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            <h3 class="text-lg font-black mb-1">Dados para Envio / Retirada</h3>
+            <p class="text-xs text-slate-400 mb-4">Preencha seus dados para gerar o pedido direto no WhatsApp da fc.cell_1.</p>
+
+            <form onsubmit="sendWhatsAppOrder(event)" class="space-y-3">
+                <div>
+                    <label class="block text-xs font-bold mb-1">Seu Nome:</label>
+                    <input type="text" id="custName" required placeholder="Ex: Maria Silva" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-xs outline-none focus:border-cyan-400 text-white">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold mb-1">Forma de Pagamento:</label>
+                    <select id="custPayment" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-xs outline-none focus:border-cyan-400 text-white">
+                        <option value="PIX">PIX</option>
+                        <option value="Cartão de Crédito/Débito">Cartão de Crédito/Débito</option>
+                        <option value="Dinheiro na Entrega/Retirada">Dinheiro na Entrega/Retirada</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold mb-1">Observações ou Troco:</label>
+                    <input type="text" id="custNotes" placeholder="Ex: Preciso de troco para R$ 100" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-xs outline-none focus:border-cyan-400 text-white">
+                </div>
+
+                <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl transition shadow-lg shadow-emerald-600/20 text-xs flex items-center justify-center gap-2 mt-2">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> Enviar Pedido via WhatsApp
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Wishlist Modal -->
+    <div id="wishlistModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-slate-900 rounded-3xl max-w-md w-full p-6 relative border border-slate-800 shadow-2xl">
+            <button onclick="closeWishlistModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            <h3 class="text-lg font-black mb-4 flex items-center gap-2 text-white">
+                <i class="fa-solid fa-heart text-rose-500"></i> Seus Favoritos
+            </h3>
+            <div id="wishlistContainer" class="space-y-3 max-h-80 overflow-y-auto custom-scrollbar"></div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 bg-slate-900 text-white border border-cyan-500/40 px-4 py-3 rounded-2xl shadow-2xl flex items-center gap-3 transform translate-y-20 opacity-0 transition-all duration-300 text-xs font-bold pointer-events-none">
+        <i class="fa-solid fa-circle-check text-emerald-400"></i>
+        <span id="toastMsg">Notificação</span>
+    </div>
+
+    <script>
+        let cart = [];
+        let wishlist = new Set();
+        let currentCategory = 'all';
+        let searchQuery = '';
+        let appliedCoupon = null;
+
+        const PRODUCTS = [
+            {
+                id: 'prod-1',
+                name: 'Fone M10 TWS Bluetooth V5.1 (Disponível ✔)',
+                category: 'fones',
+                categoryLabel: 'Fones & Áudio',
+                price: 70.00,
+                oldPrice: 90.00,
+                image: 'Screenshot_20260908_222911_Instagram.jpg',
+                description: 'Fone de ouvido sem fio M10 True Wireless Headset com display digital LED indicador de bateria, Bluetooth V5.1 e case recarregável.',
+                tag: 'Disponível ✔'
+            },
+            {
+                id: 'prod-2',
+                name: 'Samsung Galaxy A54 5G 128GB Lacre',
+                category: 'celulares',
+                categoryLabel: 'Smartphones',
+                price: 1799.00,
+                oldPrice: 2199.00,
+                image: 'https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&w=600&q=80',
+                description: 'Smartphone Samsung Galaxy A54 5G com tela Super AMOLED 120Hz e câmera de 50MP.',
+                tag: 'Destaque'
+            },
+            {
+                id: 'prod-3',
+                name: 'Carregador Turbo USB-C PD 20W Tipo-C',
+                category: 'carregadores',
+                categoryLabel: 'Carregadores',
+                price: 49.90,
+                oldPrice: 79.90,
+                image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?auto=format&fit=crop&w=600&q=80',
+                description: 'Fonte Carregador Ultra Rápido PD 20W compatível com iPhone e Android.',
+                tag: 'Mais Vendido'
+            },
+            {
+                id: 'prod-4',
+                name: 'Capinha Aveludada MagSafe (Várias Cores)',
+                category: 'capas',
+                categoryLabel: 'Capinhas & Películas',
+                price: 35.00,
+                oldPrice: 50.00,
+                image: 'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?auto=format&fit=crop&w=600&q=80',
+                description: 'Capa aveludada com proteção para câmeras e alinhamento magnético MagSafe.',
+                tag: 'Oferta'
+            },
+            {
+                id: 'prod-5',
+                name: 'Película de Vidro 3D Cobertura Total',
+                category: 'capas',
+                categoryLabel: 'Capinhas & Películas',
+                price: 25.00,
+                oldPrice: 40.00,
+                image: 'https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?auto=format&fit=crop&w=600&q=80',
+                description: 'Película de Vidro Temperado 3D com aplicação grátis na nossa loja em Éden!',
+                tag: 'Aplicação Grátis'
+            },
+            {
+                id: 'prod-6',
+                name: 'Smartwatch Series 8 HD Frequência Cardíaca',
+                category: 'smartwatches',
+                categoryLabel: 'Smartwatches',
+                price: 140.00,
+                oldPrice: 199.00,
+                image: 'https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=600&q=80',
+                description: 'Smartwatch com tela HD, monitoramento de saúde e chamadas Bluetooth.',
+                tag: 'Popular'
+            },
+            {
+                id: 'prod-7',
+                name: 'Power Bank 10.000mAh Carga Rápida',
+                category: 'carregadores',
+                categoryLabel: 'Carregadores',
+                price: 89.90,
+                oldPrice: 120.00,
+                image: 'https://images.unsplash.com/photo-1609592424109-dd9892f1b177?auto=format&fit=crop&w=600&q=80',
+                description: 'Bateria externa portátil de 10.000mAh com saídas duplas USB e LED indicador.',
+                tag: 'Novo'
+            }
+        ];
+
+        function renderProducts() {
+            const grid = document.getElementById('productsGrid');
+            const filtered = PRODUCTS.filter(p => {
+                const matchCat = currentCategory === 'all' || p.category === currentCategory;
+                const matchSearch = p.name.toLowerCase().includes(searchQuery.toLowerCase()) || p.description.toLowerCase().includes(searchQuery.toLowerCase());
+                return matchCat && matchSearch;
+            });
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '<div class="col-span-full text-center py-12 text-slate-500 font-bold">Nenhum produto encontrado.</div>';
+                return;
+            }
+
+            grid.innerHTML = filtered.map(p => `
+                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-4 flex flex-col justify-between hover:border-cyan-500/50 transition group shadow-lg">
+                    <div>
+                        <div class="relative rounded-2xl overflow-hidden bg-slate-950 mb-3 h-48 flex items-center justify-center">
+                            <img src="${p.image}" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=600&q=80';" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                            ${p.tag ? `<span class="absolute top-2 left-2 bg-brand-600 text-white font-black text-[9px] uppercase px-2.5 py-0.5 rounded-full shadow-md">${p.tag}</span>` : ''}
+                            <button onclick="toggleWishlist('${p.id}')" class="absolute top-2 right-2 p-2 rounded-full bg-slate-950/70 text-slate-300 hover:text-rose-400 transition">
+                                <i class="${wishlist.has(p.id) ? 'fa-solid fa-heart text-rose-500' : 'fa-regular fa-heart'} text-xs"></i>
+                            </button>
+                        </div>
+                        <span class="text-[10px] uppercase font-extrabold text-cyan-400 tracking-wider">${p.categoryLabel}</span>
+                        <h4 class="font-bold text-white text-xs leading-snug line-clamp-2 mt-0.5">${p.name}</h4>
+                        <p class="text-[11px] text-slate-400 mt-1 line-clamp-2">${p.description}</p>
+                    </div>
+
+                    <div class="pt-3 border-t border-slate-800/80 mt-3">
+                        <div class="flex items-baseline gap-2 mb-3">
+                            <span class="text-lg font-black text-white">R$ ${p.price.toFixed(2).replace('.', ',')}</span>
+                            ${p.oldPrice ? `<span class="text-xs text-slate-500 line-through">R$ ${p.oldPrice.toFixed(2).replace('.', ',')}</span>` : ''}
+                        </div>
+
+                        <button onclick="addToCart('${p.id}')" class="w-full bg-brand-600 hover:bg-brand-500 text-white font-bold py-2.5 rounded-xl text-xs transition flex items-center justify-center gap-1.5 shadow-lg shadow-brand-500/20">
+                            <i class="fa-solid fa-cart-plus"></i> Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function filterCategory(cat) {
+            currentCategory = cat;
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                btn.classList.remove('bg-brand-600', 'text-white');
+                btn.classList.add('bg-slate-900', 'text-slate-300');
+            });
+            const active = document.getElementById('cat-' + cat);
+            if (active) {
+                active.classList.add('bg-brand-600', 'text-white');
+                active.classList.remove('bg-slate-900', 'text-slate-300');
+            }
+            renderProducts();
+        }
+
+        function handleSearch(val) {
+            searchQuery = val;
+            renderProducts();
+        }
+
+        function addToCart(productId) {
+            const product = PRODUCTS.find(p => p.id === productId);
+            if (!product) return;
+
+            const existing = cart.find(item => item.id === productId);
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+
+            updateCartTotals();
+            showToast('Produto adicionado ao carrinho!');
+        }
+
+        function updateQuantity(productId, delta) {
+            const item = cart.find(i => i.id === productId);
+            if (!item) return;
+
+            item.quantity += delta;
+            if (item.quantity <= 0) {
+                cart = cart.filter(i => i.id !== productId);
+            }
+            updateCartTotals();
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(i => i.id !== productId);
+            updateCartTotals();
+            showToast('Produto removido.');
+        }
+
+        function updateCartTotals() {
+            const cartItemsContainer = document.getElementById('cartItemsContainer');
+            const cartBadge = document.getElementById('cartBadge');
+            const cartSubtotal = document.getElementById('cartSubtotal');
+            const cartDelivery = document.getElementById('cartDelivery');
+            const cartDiscount = document.getElementById('cartDiscount');
+            const discountRow = document.getElementById('discountRow');
+            const cartTotal = document.getElementById('cartTotal');
+
+            const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
+            cartBadge.innerText = totalItems;
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = `
+                    <div class="text-center py-12 text-slate-500">
+                        <i class="fa-solid fa-cart-flatbed text-3xl mb-2"></i>
+                        <p class="font-bold text-xs text-slate-300">Carrinho vazio</p>
+                    </div>
+                `;
+                cartSubtotal.innerText = 'R$ 0,00';
+                cartDelivery.innerText = 'R$ 0,00';
+                cartTotal.innerText = 'R$ 0,00';
+                return;
+            }
+
+            cartItemsContainer.innerHTML = cart.map(item => `
+                <div class="flex items-center gap-3 p-3 bg-slate-950 rounded-2xl border border-slate-800">
+                    <img src="${item.image}" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=600&q=80';" class="w-12 h-12 object-cover rounded-xl">
+                    <div class="flex-1">
+                        <h4 class="font-bold text-xs line-clamp-1 text-white">${item.name}</h4>
+                        <span class="text-xs text-cyan-400 font-black">R$ ${(item.price * item.quantity).toFixed(2).replace('.', ',')}</span>
+                        <div class="flex items-center gap-2 mt-1">
+                            <button onclick="updateQuantity('${item.id}', -1)" class="w-5 h-5 bg-slate-800 rounded text-xs font-bold text-white">-</button>
+                            <span class="text-xs font-bold text-white">${item.quantity}</span>
+                            <button onclick="updateQuantity('${item.id}', 1)" class="w-5 h-5 bg-slate-800 rounded text-xs font-bold text-white">+</button>
+                        </div>
+                    </div>
+                    <button onclick="removeFromCart('${item.id}')" class="text-slate-500 hover:text-rose-500 p-1">
+                        <i class="fa-regular fa-trash-can"></i>
+                    </button>
+                </div>
+            `).join('');
+
+            const subtotal = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+            const deliveryCost = parseFloat(document.getElementById('deliveryOption').value || '0');
+
+            let discount = 0;
+            if (appliedCoupon === 'EDEN10') {
+                discount = subtotal * 0.10;
+                discountRow.classList.remove('hidden');
+                cartDiscount.innerText = `-R$ ${discount.toFixed(2).replace('.', ',')}`;
+            } else {
+                discountRow.classList.add('hidden');
+            }
+
+            const total = subtotal + deliveryCost - discount;
+
+            cartSubtotal.innerText = `R$ ${subtotal.toFixed(2).replace('.', ',')}`;
+            cartDelivery.innerText = `R$ ${deliveryCost.toFixed(2).replace('.', ',')}`;
+            cartTotal.innerText = `R$ ${total.toFixed(2).replace('.', ',')}`;
+        }
+
+        function toggleCartDrawer() {
+            const drawer = document.getElementById('cartDrawer');
+            const overlay = document.getElementById('cartDrawerOverlay');
+
+            if (drawer.classList.contains('translate-x-full')) {
+                drawer.classList.remove('translate-x-full');
+                overlay.classList.remove('hidden');
+                setTimeout(() => overlay.classList.remove('opacity-0'), 10);
+            } else {
+                drawer.classList.add('translate-x-full');
+                overlay.classList.add('opacity-0');
+                setTimeout(() => overlay.classList.add('hidden'), 300);
+            }
+        }
+
+        function applyCoupon() {
+            const input = document.getElementById('couponInput').value.trim().toUpperCase();
+            if (input === 'EDEN10') {
+                appliedCoupon = 'EDEN10';
+                showToast('Cupom EDEN10 aplicado (10% OFF)!');
+            } else {
+                showToast('Cupom inválido.');
+            }
+            updateCartTotals();
+        }
+
+        function toggleWishlist(id) {
+            if (wishlist.has(id)) {
+                wishlist.delete(id);
+                showToast('Removido dos favoritos');
+            } else {
+                wishlist.add(id);
+                showToast('Adicionado aos favoritos!');
+            }
+            document.getElementById('wishlistBadge').innerText = wishlist.size;
+            document.getElementById('wishlistBadge').classList.toggle('hidden', wishlist.size === 0);
+            renderProducts();
+        }
+
+        function openWishlistModal() {
+            const container = document.getElementById('wishlistContainer');
+            if (wishlist.size === 0) {
+                container.innerHTML = '<p class="text-center text-xs text-slate-500 py-6">Nenhum produto nos favoritos.</p>';
+            } else {
+                const favs = PRODUCTS.filter(p => wishlist.has(p.id));
+                container.innerHTML = favs.map(p => `
+                    <div class="flex items-center gap-3 p-2 bg-slate-950 rounded-xl border border-slate-800">
+                        <img src="${p.image}" class="w-10 h-10 object-cover rounded-lg">
+                        <div class="flex-1">
+                            <h5 class="text-xs font-bold text-white leading-tight">${p.name}</h5>
+                            <span class="text-xs text-cyan-400 font-bold">R$ ${p.price.toFixed(2).replace('.', ',')}</span>
+                        </div>
+                        <button onclick="addToCart('${p.id}')" class="bg-brand-600 text-white p-2 rounded-lg text-xs">
+                            <i class="fa-solid fa-cart-plus"></i>
+                        </button>
+                    </div>
+                `).join('');
+            }
+            document.getElementById('wishlistModal').classList.remove('hidden');
+        }
+
+        function closeWishlistModal() {
+            document.getElementById('wishlistModal').classList.add('hidden');
+        }
+
+        function openCheckoutModal() {
+            if (cart.length === 0) {
+                showToast('Seu carrinho está vazio!');
+                return;
+            }
+            document.getElementById('checkoutModal').classList.remove('hidden');
+        }
+
+        function closeCheckoutModal() {
+            document.getElementById('checkoutModal').classList.add('hidden');
+        }
+
+        function sendWhatsAppOrder(e) {
+            e.preventDefault();
+            const name = document.getElementById('custName').value.trim();
+            const payment = document.getElementById('custPayment').value;
+            const notes = document.getElementById('custNotes').value.trim();
+            const deliverySel = document.getElementById('deliveryOption');
+            const deliveryText = deliverySel.options[deliverySel.selectedIndex].text;
+
+            let msg = `*NOVO PEDIDO - fc.cell_1*\n\n`;
+            msg += `*Cliente:* ${name}\n`;
+            msg += `*Entrega/Retirada:* ${deliveryText}\n`;
+            msg += `*Forma de Pagamento:* ${payment}\n`;
+            if (notes) msg += `*Observações:* ${notes}\n`;
+            msg += `\n*ITENS DO PEDIDO:*\n`;
+
+            cart.forEach(item => {
+                msg += `• ${item.quantity}x ${item.name} - R$ ${(item.price * item.quantity).toFixed(2).replace('.', ',')}\n`;
+            });
+
+            const subtotal = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+            const deliveryCost = parseFloat(deliverySel.value || '0');
+            let discount = appliedCoupon === 'EDEN10' ? (subtotal * 0.10) : 0;
+            const total = subtotal + deliveryCost - discount;
+
+            msg += `\n*TOTAL:* R$ ${total.toFixed(2).replace('.', ',')}`;
+
+            const phone = "5521992801596";
+            const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+            window.open(url, '_blank');
+            closeCheckoutModal();
+        }
+
+        function sendRepairQuote(e) {
+            e.preventDefault();
+            const model = document.getElementById('repairModel').value.trim();
+            const issue = document.getElementById('repairIssue').value;
+            const name = document.getElementById('repairName').value.trim();
+
+            let msg = `*SOLICITAÇÃO DE ORÇAMENTO - MANUTENÇÃO*\n\n`;
+            msg += `*Cliente:* ${name}\n`;
+            msg += `*Modelo:* ${model}\n`;
+            msg += `*Defeito:* ${issue}\n`;
+            msg += `\nGostaria de saber o valor para o conserto do meu aparelho na loja de Éden.`;
+
+            const phone = "5521992801596";
+            const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+            window.open(url, '_blank');
+        }
+
+        function copyAddress() {
+            const addr = "Av. Dr. Délio Guaraná, 502 - Éden, São João de Meriti - RJ, 25545-100";
+            navigator.clipboard.writeText(addr);
+            showToast('Endereço copiado para a área de transferência!');
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMsg').innerText = msg;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        window.onload = function() {
+            renderProducts();
+            updateCartTotals();
+        };
+    </script>
+</body>
+</html>
